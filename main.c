@@ -5,7 +5,7 @@
 #include <threads.h>
 #include <stdatomic.h>
 #include "clientes.c"
-#include "estoque.c"
+#include "estoque.h"
 
 
     #ifdef _WIN32
