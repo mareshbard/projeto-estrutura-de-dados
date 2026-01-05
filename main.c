@@ -102,13 +102,13 @@ int main()
 			printf("1 - Mussarela\n");
 			printf("2 - Portuguesa\n");
 			printf("3 - Quatro Queijos\n");
-			printf("4 - Drango Catupiry\n");
-			printf("5 - sorvete\n\n");
+			printf("4 - Frango Catupiry\n");
+			printf("5 - Sorvete\n\n");
 
 		    printf("Digite o numero referente ao sabor: \n");
 			printf(">> ");
 			scanf("%d", &item);
-		} while(strcmp(sabores[item], p1.sabor)!=0);
+		} while(strcmp(sabores[item - 1], p1.sabor)!=0);
 		do {
 		    // MOSTRAR MENU DE BEBIDAS
 		    printf("1 - Suco de laranja\n");
@@ -120,7 +120,7 @@ int main()
 			printf("Digite o numero referente a bebida: \n");
 			printf(">> ");
 			scanf("%d", &item);
-		} while(strcmp(bebidas[item], p1.bebida)!=0);
+		} while(strcmp(bebidas[item - 1], p1.bebida)!=0);
 		do {
 		    // MOSTRAR MENU DE BORDAS
 		    printf("1 - Chocolate\n");
@@ -132,23 +132,23 @@ int main()
 			printf("Digite o numero referente ao sabor da borda:\n");
 			printf(">> ");
 			scanf("%d", &item);
-		} while(strcmp(bordas[item], p1.borda)!=0);
+		} while(strcmp(bordas[item - 1], p1.borda)!=0);
 		do {
 		    // MOSTRAR MENU DE acompanhamentos
 		    printf("1 - Ketchup\n");
 			printf("2 - Maionese\n");
-			printf("3 - Letchup + Maionese\n");
+			printf("3 - Ketchup + Maionese\n");
 			printf("4 - Maionese temperada\n");
 			printf("5 - Sem acompalhamentos\n\n");
 
 			printf("Digite o numero referente ao acompanhamento: \n");
 			printf(">> ");
 			scanf("%d", &item);
-			if(strcmp(acompanhamentos[item], p1.acompanhamento)==0){
+			if(strcmp(acompanhamentos[item - 1], p1.acompanhamento)==0){
 			    atomic_store(&status, 1);
 			    printf("Pedido finalizado!\n");
 			}
-		} while(strcmp(acompanhamentos[item], p1.acompanhamento)!=0 && atomic_load(&status)!=2);
+		} while(strcmp(acompanhamentos[item - 1], p1.acompanhamento)!=0 && atomic_load(&status)!=2);
 		
 		if(atomic_load(&status) == 2) {
 			printf("Tarde demais! Cliente foi embora\n");
