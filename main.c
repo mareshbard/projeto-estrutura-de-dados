@@ -31,7 +31,7 @@ typedef struct Pedido{
 typedef struct Cliente{
     char nome[40];
     Pedido pedido;
-	Cliente *proximo //conect na proximo
+	struct Cliente *proximo; //conect na proximo
 } Cliente;
 
 typedef struct {
@@ -105,7 +105,7 @@ void criarPedido(Pedido *p) {
 	strcpy(p->borda, bordas[rand() % (MAX_QTD)]);
 	strcpy(p->acompanhamento, acompanhamentos[rand() % (MAX_QTD)]);
 	strcpy(p->bebida, bebidas[rand() % (MAX_QTD)]);
-	printf("--------------PEDIDO --------------\n");
+	printf("-------------- PEDIDO --------------\n");
 	printf("Sabor: %s \n", p->sabor);
 	printf("Bebida: %s \n", p->bebida);
 	printf("Bordas: %s \n", p->borda);
@@ -116,19 +116,52 @@ void criarPedido(Pedido *p) {
 
 int main()
 {
+
 	Fila pedidos; // fila iniciada mas não implementada
 	pedidos.primeiro = NULL;
 	pedidos.ultimo = NULL;
-
-
+	
 	thrd_t thread;
 	Pedido p1;
-	Pedido p2;
 	srand(time(NULL));
 	int item;
-	int qtd_clientes = 4 + rand() % (4 - 7 + 1);
-	printf("%d", qtd_clientes);
+	int qtd_clientes = 4 + rand() % 3; //gera um numero aleatorio entre 4 e 6
+	
+	char ArrayNomesClientes[qtd_clientes][50]; // aq tem os nomes dos clientes kkkkk
+	
+	strcpy(ArrayNomesClientes[0],"xerox");
+	strcpy(ArrayNomesClientes[1],"jasmine");
+	strcpy(ArrayNomesClientes[2],"Remédio");
+	strcpy(ArrayNomesClientes[3],"graziela");
+	
+	if(qtd_clientes > 4){
+		strcpy(ArrayNomesClientes[4],"josimar");
+		if(qtd_clientes > 5){
+			strcpy(ArrayNomesClientes[5],"erivelton");
+		}
+		if(qtd_clientes > 6){
+				strcpy(ArrayNomesClientes[6],"rodinei");
+		}
+	}
 
+	// metodo 1
+	for(int i = 0; i < qtd_clientes - 1; i++){ //coloca os pedidos na fila com nomes engraçados(forma legal);
+		Pedido p;
+		criarPedido(&p);
+		AdicionarPessoa(&pedidos,ArrayNomesClientes[i],p);
+	}
+
+	// metodo 2
+	for(int i = 0; i < qtd_clientes; i++){ //coloca nomes genericos nos clientes(foma chata)
+		Pedido p;
+		criarPedido(&p);
+		char nomeFalso[40];
+		sprintf(nomeFalso, "Cliente %d", i+1);
+		
+		AdicionarPessoa(&pedidos,nomeFalso, p);
+	}
+	
+	printf("%d\n", qtd_clientes);
 	do {
 		atomic_store(&status, 0);
 		criarPedido(&p1);
