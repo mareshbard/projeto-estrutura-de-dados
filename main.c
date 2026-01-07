@@ -136,7 +136,7 @@ int main()
 	thrd_t thread;
 	srand(time(NULL));
 	int item;
-	int qtd_clientes = 4 + rand() % 3; // gera um numero aleatorio entre 4 e 6
+	int qtd_clientes = 4 + rand() % 3; // gera um numero aleatorio entre 4 e 7
 
 	char ArrayNomesClientes[qtd_clientes][50]; // aq tem os nomes dos clientes kkkkk
 
@@ -165,16 +165,6 @@ int main()
 		criarPedido(&p);
 		AdicionarPessoa(&pedidos, ArrayNomesClientes[i], p);
 	}
-
-	// // metodo 2
-	// for(int i = 0; i < qtd_clientes; i++){ //coloca nomes genericos nos clientes(foma chata)
-	// 	Pedido p;
-	// 	criarPedido(&p);
-	// 	char nomeFalso[40];
-	// 	sprintf(nomeFalso, "Cliente %d", i+1);
-
-	// 	AdicionarPessoa(&pedidos,nomeFalso, p);
-	// }
 
 	printf("%d pedidos\n\n", qtd_clientes);
 	Cliente *atual;
@@ -206,6 +196,7 @@ int main()
 			printf(">> ");
 			scanf("%d", &item);
 		} while (strcmp(sabores[item - 1], atual->pedido.sabor) != 0);
+		system("cls || clear");
 		do
 		{
 			// MOSTRAR MENU DE BEBIDAS
@@ -219,6 +210,7 @@ int main()
 			printf(">> ");
 			scanf("%d", &item);
 		} while (strcmp(bebidas[item - 1], atual->pedido.bebida) != 0);
+		system("cls || clear");
 		do
 		{
 			// MOSTRAR MENU DE BORDAS
@@ -232,6 +224,7 @@ int main()
 			printf(">> ");
 			scanf("%d", &item);
 		} while (strcmp(bordas[item - 1], atual->pedido.borda) != 0);
+		system("cls || clear");
 		do
 		{
 			// MOSTRAR MENU DE acompanhamentos
@@ -263,9 +256,8 @@ int main()
 		getchar();
 		getchar();
 		system("cls || clear");
-
 	}
-	printf("Expediente finalizado! :)\n");
+	printf("🎉   Expediente finalizado! :)  🎉\n");
 
 	return 0;
 }
