@@ -21,8 +21,7 @@
 
 atomic_int status = 0;
 #define MAX_QTD 5
-
-    typedef struct Pedido{
+typedef struct Pedido{
     char sabor[55];
     char bebida[55];
     char borda[55];
@@ -32,8 +31,14 @@ atomic_int status = 0;
 typedef struct Cliente{
     char nome[40];
     Pedido pedido;
+	Cliente *proximo //conect na proximo
 } Cliente;
-    
+
+typedef struct {
+	Cliente *primeiro;
+	Cliente *ultimo;
+} Fila;
+
 
 int cronometro(void *arg) {
 	for(int i = TEMPO_LIM; i>0; i--) {
@@ -60,10 +65,39 @@ int cronometro(void *arg) {
 	}
 	return 0;
 }
-typedef struct {
-	Cliente *primeiro;
-	Cliente *ultimo;
-} Fila;
+
+void AdicionarPessoa(Fila *f , char *nome , Pedido p) {
+    Cliente *novo = (Cliente*) malloc(sizeof(Cliente));
+    if (novo == NULL) {
+        printf("lascou leticia\n");
+        return;
+    }
+    strcpy(novo->nome, nome);
+    novo->pedido = p;
+    novo->proximo = NULL; 
+
+    if (f->primeiro == NULL) {
+        f->primeiro = novo;
+        f->ultimo = novo;
+    } else {
+        f->ultimo->proximo = novo;
+        f->ultimo = novo;
+    }
+}
+
+Cliente* RemoverPessoa(Fila *p){
+	if(p -> primeiro == NULL) return NULL; //tem ninguem não fi
+	
+	Cliente* temp = p -> primeiro;
+	p -> primeiro = p -> primeiro -> proximo;
+
+	if( p -> primeiro == NULL){
+		p -> ultimo = NULL;
+	}
+
+	return temp;
+}
+
 
 void criarPedido(Pedido *p) {
 
@@ -77,14 +111,22 @@ void criarPedido(Pedido *p) {
 	printf("Bordas: %s \n", p->borda);
 	printf("Acompanhamentos: %s \n", p->acompanhamento);
 }
+
+
+
 int main()
 {
+	Fila pedidos; // fila iniciada mas não implementada
+	pedidos.primeiro = NULL;
+	pedidos.ultimo = NULL;
+
+
 	thrd_t thread;
 	Pedido p1;
 	Pedido p2;
 	srand(time(NULL));
 	int item;
-	int qtd_clientes = rand() % 4 + 3;
+	int qtd_clientes = 4 + rand() % (4 - 7 + 1);
 	printf("%d", qtd_clientes);
 
 	do {
