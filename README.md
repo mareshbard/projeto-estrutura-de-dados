@@ -21,4 +21,4 @@ https://onlinegdb.com/mAkcYQ96-X
 
 ✦ [Cadu](https://github.com/Mordegb)
 
-✦ [Daniel Bertini](https://github.com/sudo-del-System-32)
+✦ [Daniel Bertini](https://github.com/sudo-del-System32)
