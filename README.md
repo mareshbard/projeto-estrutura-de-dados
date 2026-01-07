@@ -11,10 +11,14 @@
 - Enquanto você não acertar, continuará naquele estágio do jogo!
 - ATENÇÃO: Você terá 30s para fazer o pedido!
 
+## 🕹 JOGUE AQUI:
+
+https://onlinegdb.com/mAkcYQ96-X
+
 ## 📌 COLABORADORES:
 
 ✦ [Leticia Gomes](https://github.com/mareshbard)
 
 ✦ [Cadu](https://github.com/Mordegb)
 
-✦ [Francisco Daniel](https://github.com/sudo-del-System-32)
+✦ [Daniel Bertini](https://github.com/sudo-del-System-32)
