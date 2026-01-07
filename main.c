@@ -114,22 +114,16 @@ Cliente *RemoverPessoa(Fila *p)
 
 void criarPedido(Pedido *p)
 {
-
 	strcpy(p->sabor, sabores[rand() % (MAX_QTD)]);
 	strcpy(p->borda, bordas[rand() % (MAX_QTD)]);
 	strcpy(p->acompanhamento, acompanhamentos[rand() % (MAX_QTD)]);
 	strcpy(p->bebida, bebidas[rand() % (MAX_QTD)]);
-	// printf("-------------- PEDIDO --------------\n");
-	// printf("Sabor: %s \n", p->sabor);
-	// printf("Bebida: %s \n", p->bebida);
-	// printf("Bordas: %s \n", p->borda);
-	// printf("Acompanhamentos: %s \n", p->acompanhamento);
 }
 
 int main()
 {
 
-	Fila pedidos; // fila iniciada mas não implementada
+	Fila pedidos; 
 	pedidos.primeiro = NULL;
 	pedidos.ultimo = NULL;
 
@@ -138,29 +132,28 @@ int main()
 	int item;
 	int qtd_clientes = 4 + rand() % 3; // gera um numero aleatorio entre 4 e 7
 
-	char ArrayNomesClientes[qtd_clientes][50]; // aq tem os nomes dos clientes kkkkk
+	char ArrayNomesClientes[qtd_clientes][50]; // aq tem os nomes dos clientes 
 
 	strcpy(ArrayNomesClientes[0], "xerox");
-	strcpy(ArrayNomesClientes[1], "jasmine");
+	strcpy(ArrayNomesClientes[1], "	Mercy");
 	strcpy(ArrayNomesClientes[2], "Remédio");
-	strcpy(ArrayNomesClientes[3], "graziela");
+	strcpy(ArrayNomesClientes[3], "Jaciara");
 
 	if (qtd_clientes > 4)
 	{
-		strcpy(ArrayNomesClientes[4], "josimar");
+		strcpy(ArrayNomesClientes[4], "	Audriey");
 		if (qtd_clientes > 5)
 		{
-			strcpy(ArrayNomesClientes[5], "erivelton");
+			strcpy(ArrayNomesClientes[5], "Erivelton");
 		}
 		if (qtd_clientes > 6)
 		{
-			strcpy(ArrayNomesClientes[6], "rodinei");
+			strcpy(ArrayNomesClientes[6], "Ping-pong");
 		}
 	}
 
-	// metodo 1
-	for (int i = 0; i < qtd_clientes - 1; i++)
-	{ // coloca os pedidos na fila com nomes engraçados(forma legal);
+	for (int i = 0; i < qtd_clientes ; i++)
+	{ 
 		Pedido p;
 		criarPedido(&p);
 		AdicionarPessoa(&pedidos, ArrayNomesClientes[i], p);
@@ -186,11 +179,11 @@ int main()
 		{
 			// MOSTRAR MENU DE SABORES
 			printf("Sabores: \n");
-			printf("1 - Mussarela\n");
-			printf("2 - Portuguesa\n");
-			printf("3 - Quatro Queijos\n");
-			printf("4 - Frango Catupiry\n");
-			printf("5 - Sorvete\n\n");
+			printf("1 - Mussarela 🧀\n");
+			printf("2 - Portuguesa 🥓\n");
+			printf("3 - Quatro Queijos 🧀🧀🧀🧀\n");
+			printf("4 - Frango Catupiry 🐔\n");
+			printf("5 - Sorvete 🍦\n\n");
 
 			printf("Digite o numero referente ao sabor: \n");
 			printf(">> ");
@@ -200,11 +193,11 @@ int main()
 		do
 		{
 			// MOSTRAR MENU DE BEBIDAS
-			printf("1 - Suco de laranja\n");
-			printf("2 - Suco de manga\n");
-			printf("3 - Coca-Cola\n");
-			printf("4 - Guaraná\n");
-			printf("5 - Sem bebidas\n\n");
+			printf("1 - Suco de laranja 🍊\n");
+			printf("2 - Suco de manga 🥭\n");
+			printf("3 - Coca-Cola 🥤\n");
+			printf("4 - Guaraná 🥤\n");
+			printf("5 - Sem bebidas ❌\n\n");
 
 			printf("Digite o numero referente a bebida: \n");
 			printf(">> ");
@@ -214,11 +207,11 @@ int main()
 		do
 		{
 			// MOSTRAR MENU DE BORDAS
-			printf("1 - Chocolate\n");
-			printf("2 - Catupiry\n");
-			printf("3 - Doce de leite\n");
-			printf("4 - Cream cheese\n");
-			printf("5 - Cheddar\n\n");
+			printf("1 - Chocolate 🍫\n");
+			printf("2 - Catupiry 🧀\n");
+			printf("3 - Doce de leite 🍯\n");
+			printf("4 - Cream cheese ⚪\n");
+			printf("5 - Cheddar 🧀\n\n");
 
 			printf("Digite o numero referente ao sabor da borda:\n");
 			printf(">> ");
@@ -228,11 +221,11 @@ int main()
 		do
 		{
 			// MOSTRAR MENU DE acompanhamentos
-			printf("1 - Ketchup\n");
-			printf("2 - Maionese\n");
-			printf("3 - Ketchup + Maionese\n");
-			printf("4 - Maionese temperada\n");
-			printf("5 - Sem acompalhamentos\n\n");
+			printf("1 - Ketchup 🍅\n");
+			printf("2 - Maionese ⚪\n");
+			printf("3 - Ketchup + Maionese 🍅⚪\n");
+			printf("4 - Maionese temperada 🌶️🧴\n");
+			printf("5 - Sem acompalhamentos ❌\n\n");
 
 			printf("Digite o numero referente ao acompanhamento: \n");
 			printf(">> ");
@@ -247,7 +240,6 @@ int main()
 		if (atomic_load(&status) == 2)
 		{
 			printf("Tarde demais! Cliente foi embora\n");
-			free(atual);
 		}
 		thrd_join(thread, NULL);
 		free(atual);
