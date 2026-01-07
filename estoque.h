@@ -20,7 +20,7 @@
         {"Maionese"},
         {"Ketchup + Maionese"},
         {"Maionese temperada"},
-        {"Sem acompalhamentos"}
+        {"Sem acompanhamentos"}
     };
     char bebidas[MAX_QTD][55] ={
         {"Suco de laranja"},
