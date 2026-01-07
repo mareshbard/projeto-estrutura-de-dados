@@ -144,13 +144,14 @@ int main()
 		}
 	}
 
-	
+	// metodo 1
 	for(int i = 0; i < qtd_clientes - 1; i++){ //coloca os pedidos na fila com nomes engraçados(forma legal);
 		Pedido p;
 		criarPedido(&p);
 		AdicionarPessoa(&pedidos,ArrayNomesClientes[i],p);
 	}
 
+	// metodo 2
 	for(int i = 0; i < qtd_clientes; i++){ //coloca nomes genericos nos clientes(foma chata)
 		Pedido p;
 		criarPedido(&p);
