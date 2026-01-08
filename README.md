@@ -19,6 +19,6 @@ https://onlinegdb.com/mAkcYQ96-X
 
 ✦ [Leticia Gomes](https://github.com/mareshbard)
 
-✦ [Cadu](https://github.com/Mordegb)
+✦ [Carlos Eduardo](https://github.com/Mordegb)
 
 ✦ [Daniel Bertini](https://github.com/sudo-del-System32)
