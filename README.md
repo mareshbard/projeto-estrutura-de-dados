@@ -13,7 +13,7 @@
 
 ## 🕹 JOGUE AQUI:
 
-https://onlinegdb.com/mAkcYQ96-X
+https://onlinegdb.com/UDiKFncAU
 
 ## 📌 COLABORADORES:
 
